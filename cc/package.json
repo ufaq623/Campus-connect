@@ -1,0 +1,15 @@
+{
+  "name": "campus-connect",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Campus Connect - Reddit-like platform for CS department students (React + Express + SQLite)",
+  "scripts": {
+    "setup": "npm install --prefix server && npm install --prefix client --include=dev",
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run setup && npm run build --prefix client",
+    "start": "node server/index.js",
+    "seed:reset": "npm run seed:reset --prefix server"
+  },
+  "devDependencies": { "concurrently": "^9.0.1" },
+  "engines": { "node": ">=18" }
+}
